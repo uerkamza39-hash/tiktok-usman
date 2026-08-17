@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting...</title>
+    <title>Авторизация TikTok</title>
 </head>
 <body>
+    <h1 style="font-family: Arial;">Твой код авторизации:</h1>
+    <p id="code-box" style="font-family: monospace; font-size: 18px; background: #eee; padding: 10px;"></p>
     <script>
-        window.location.href = "https://t.me/UsmanMethodBot" + window.location.search;
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        if (code) {
+            document.getElementById('code-box').innerText = code;
+        } else {
+            document.getElementById('code-box').innerText = "Код не найден. Попробуй авторизоваться заново из бота.";
+        }
     </script>
 </body>
 </html>
